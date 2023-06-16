@@ -1,0 +1,75 @@
+.formPage{
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:azure;
+    padding: 50px;
+    border: none;
+    border-radius:5px;
+    min-height: 100vh;
+    width: 100%;
+}
+.loginContainer{
+    /* display: inline-block;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 240, 250);
+    padding: 50px;
+    border: solid;
+    border-radius:5px;
+    width: 380px;
+    height: 350px;
+    position: relative;
+    margin: 6% auto;
+    margin-left: 400px;
+    padding: 5px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background-color: rgb(255, 240, 250);
+    border-radius: 10px;
+    border: solid;
+    border-width: 1px;
+}
+label{
+    border-width: 1px;
+    border-radius:3px ;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 9px;
+    margin-right: 150px;
+    margin-left: 10px;
+}
+button{
+    color: white;
+    border: none;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    background-color: purple;
+    border-radius: 18px;
+    transition: background-color 0.2s, color 0.2s,box-shadow 0.2 ;
+    cursor: pointer;
+    box-shadow: 8px 8px 8px rgba(0,0,0, 0.6);
+}
+button:hover{
+    color: black;
+    background-color: rgb(234, 142, 234);
+
+}
+button:active{
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 9px;
+    padding-bottom:9px;
+    box-shadow: 8px 8px 8px rgba(0,0,0, .9);
+}
+input{
+    display: block;
+    margin: 8px;
+}
+

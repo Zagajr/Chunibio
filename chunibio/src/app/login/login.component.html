@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./login.component.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="formPage" >
+    <div class="loginContainer">
+        <form [formGroup]="loginForm">
+            <h1>Login</h1>
+            <div class="formGroup">
+                <button (click)="routeToRegistrationForm()" >Register</button>
+                <label for="userName">UserName</label>
+                <input type="text" class="form-control" formControlName="userName">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" formControlName="password" >
+                <button class="LoginButton" >Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
