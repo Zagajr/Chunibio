@@ -15,12 +15,31 @@
                 <h1>Register</h1>
                 <label for="UserName">UserName</label>
                 <input type="text" formControlName="UserName">
+                    <p class="alert-danger" *ngIf="RegistrationForm.controls['UserName'].errors && RegistrationForm.controls['UserName'].touched ">
+                        user is required
+                    </p>
                 <label for="Email">Email</label>
                 <input type="text" formControlName="Email">
+                <p class="alert-danger" *ngIf="RegistrationForm.controls['Email'].errors?.['pattern'] && (RegistrationForm.controls['Email'].dirty || RegistrationForm.controls['Email'].touched)">
+                    Email is invalid
+                </p>
+                <p class="alert-danger" *ngIf="RegistrationForm.controls['Email'].errors?.['required'] && RegistrationForm.controls['Email'].touched">
+                    Email is required 
+                </p>
                 <label for="password">Password</label>
-                <input type="password" formControlName="password">
+                <input type="password" formControlName="Password">
+                <p class="alert-danger" *ngIf="RegistrationForm.controls['Password'].errors?.['minlength'] && (RegistrationForm.controls['Password'].dirty || RegistrationForm.controls['Password'].touched)">
+                    Password must contain at least 8 Characters.
+                  </p>
+                    
+                <p class="alert-danger" *ngIf="RegistrationForm.controls['Password'].errors?.['required'] && RegistrationForm.controls['Password'].touched">
+                    Password is required
+                </p>
                 <label for="confirmPassword">Confirm Password</label>
                 <input type="password" formControlName="confirmPassword">
+                <p class="alert-danger" *ngIf="RegistrationForm.controls['confirmPassword'].errors?.['confirmPassword']" >
+                    password doesn't match !
+                </p>
                 <button>Register</button>
                 <p (click)="routeToLogin()"  class="already">I already have an account</p>
               

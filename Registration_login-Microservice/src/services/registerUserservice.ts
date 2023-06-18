@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import user, { IUser } from "../Models/User.Model";
 export async function registerUser(req: Request , res : Response ){
     try{
+        console.log(req);
         await user.create({
             userName:req.body.userName,
             email:req.body.email,
