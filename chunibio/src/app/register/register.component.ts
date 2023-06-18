@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {FormGroup,FormBuilder,Validators} from '@angular/forms'
 import { Router } from '@angular/router';
 import { confirmPasswordValidator } from '../Validators/validaton-helper';
+import { RegisterUserService } from './register-user.service';
+import { User } from './User';
 
 @Component({
   selector: 'app-register',
@@ -10,8 +12,8 @@ import { confirmPasswordValidator } from '../Validators/validaton-helper';
 })
 export class RegisterComponent {
     RegistrationForm!:FormGroup;
-    Submitted!:boolean;
-    constructor(private formBuilder :FormBuilder,private router: Router){}
+    Submitted: boolean = false;
+    constructor(private formBuilder :FormBuilder,private router: Router,private registerUserService:RegisterUserService){}
     ngOnInit(): void {
       this.RegistrationForm = this.formBuilder.group({
         UserName:['',Validators.required  ],
@@ -23,4 +25,20 @@ export class RegisterComponent {
     routeToLogin():void{
       this.router.navigate(['/login']);
     }
+
+   async registerUser(){
+    if(!this.RegistrationForm.controls['UserName'].errors &&
+     !this.RegistrationForm.controls['Email'].errors &&
+     !this.RegistrationForm.controls['Password'].errors &&
+     !this.RegistrationForm.controls['confirmPassword'].errors){ 
+      const user : User={
+        userName: this.RegistrationForm.get('UserName')?.value,
+        email: this.RegistrationForm.get('Email')?.value,
+        password: this.RegistrationForm.get('Password')?.value
+      }
+        const result = this.registerUserService.registerUser(user);
+        this.Submitted=true;
+        console.log(result)
+     }
+   }
 }

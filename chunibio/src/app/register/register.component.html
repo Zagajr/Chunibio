@@ -40,7 +40,10 @@
                 <p class="alert-danger" *ngIf="RegistrationForm.controls['confirmPassword'].errors?.['confirmPassword']" >
                     password doesn't match !
                 </p>
-                <button>Register</button>
+                <button (click)="registerUser()">Register</button>
+                <p class="text-success" *ngIf="Submitted">
+                    You have registered Successfully !
+                </p>
                 <p (click)="routeToLogin()"  class="already">I already have an account</p>
               
             </form>

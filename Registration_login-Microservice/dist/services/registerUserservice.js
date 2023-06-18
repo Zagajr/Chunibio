@@ -17,6 +17,7 @@ const User_Model_1 = __importDefault(require("../Models/User.Model"));
 function registerUser(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
+            console.log(req);
             yield User_Model_1.default.create({
                 userName: req.body.userName,
                 email: req.body.email,

@@ -17,7 +17,7 @@ const axios_1 = __importDefault(require("axios"));
 function registerUser(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const result = yield axios_1.default.post('http://localhost:4000/register', req);
+            const result = yield axios_1.default.post('http://localhost:4000/register', req.body);
             res.status(200).json({
                 message: result.data.message
             });
