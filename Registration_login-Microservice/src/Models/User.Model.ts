@@ -1,6 +1,6 @@
 import mongoose, { Document, Model } from "mongoose";
 
-mongoose.connect('mongodb://localhost"27017/Chunibio',{});
+mongoose.connect('mongodb://localhost:27017/Chunibio',{});
 
 export interface IUser extends Document{
     userName:String,
