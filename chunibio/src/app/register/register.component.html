@@ -41,9 +41,12 @@
                     password doesn't match !
                 </p>
                 <button (click)="registerUser()">Register</button>
-                <p class="text-success" *ngIf="Submitted">
-                    You have registered Successfully !
+                <p class="text-success" *ngIf="Submitted && success">
+                   {{response.message}}
                 </p>
+                <p class="alert-danger" *ngIf="!(Submitted && success)">
+                    {{response.message}}
+                 </p>
                 <p (click)="routeToLogin()"  class="already">I already have an account</p>
               
             </form>

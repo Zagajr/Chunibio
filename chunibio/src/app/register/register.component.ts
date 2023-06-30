@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { confirmPasswordValidator } from '../Validators/validaton-helper';
 import { RegisterUserService } from './register-user.service';
 import { User } from './User';
+import { __await } from 'tslib';
 
 @Component({
   selector: 'app-register',
@@ -13,6 +14,8 @@ import { User } from './User';
 export class RegisterComponent {
     RegistrationForm!:FormGroup;
     Submitted: boolean = false;
+    success:boolean =false;
+    response !:any;
     constructor(private formBuilder :FormBuilder,private router: Router,private registerUserService:RegisterUserService){}
     ngOnInit(): void {
       this.RegistrationForm = this.formBuilder.group({
@@ -31,14 +34,24 @@ export class RegisterComponent {
      !this.RegistrationForm.controls['Email'].errors &&
      !this.RegistrationForm.controls['Password'].errors &&
      !this.RegistrationForm.controls['confirmPassword'].errors){ 
-      const user : User={
+      const user : User ={
         userName: this.RegistrationForm.get('UserName')?.value,
         email: this.RegistrationForm.get('Email')?.value,
         password: this.RegistrationForm.get('Password')?.value
       }
-        const result = this.registerUserService.registerUser(user);
-        this.Submitted=true;
-        console.log(result)
+        const result = await this.registerUserService.registerUser(user);
+        this.response = result;
+        if(this.response.message === "You have been registered Sucessfully"){
+          this.success = true;
+          this.Submitted=true;
+          setTimeout(()=>{
+            this.router.navigate(['/login']);
+          },1000);
+        }
+        else{
+          this.success=false;
+        }
+        console.log(this.success +" "+this.Submitted)
      }
    }
 }

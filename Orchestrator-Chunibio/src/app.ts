@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(cors({
     origin:"*",
     credentials:true
-}))
+}));
 app.use('/',router);
 const port = 3000;
 app.listen(port,()=>{

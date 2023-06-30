@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError } from 'rxjs';
+import { Observable, Observer, catchError } from 'rxjs';
 import { User } from './User';
 import axios from 'axios';
 
@@ -12,11 +12,12 @@ export class RegisterUserService {
   constructor(private http:HttpClient) { }
 
  async registerUser(User:User) {
-    console.log(JSON.stringify(User));
+   // console.log(JSON.stringify(User));
     const options = new HttpHeaders({'content-Type':'application/json'});
-    return this.http.post('http://localhost:3000/register',User).toPromise().then((data)=>{
-      console.log(data)
-    });
+    let response ;
+     response = await this.http.post('http://localhost:3000/register',User).toPromise();
+     console.log(response);
+    return response;
   }
   
 }
