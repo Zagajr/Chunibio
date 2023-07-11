@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./genre-selection.component.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="Container">
+        <h1 class="title">Add your Fav Genres</h1>
+    <div class="cardContainer">  
+    <div class="Card" [style.background-image]="'url('+backGrounds[genre.genre] +')'" *ngFor="let genre of genres.message"> 
+       <h1 > {{genre.genre}}</h1>
+       <input type="checkbox"  name="{{genre.id}}" [value]="genre.id" (change)="getGenreId($event,genre.genre)">
+       <p>{{genre.Desc}}</p>
+      </div> 
+    <button type="submit" (click)="addFavGenres()">Add</button>
+</div>  
+</div>
+</body>
+</html>

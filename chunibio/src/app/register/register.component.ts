@@ -45,13 +45,13 @@ export class RegisterComponent {
           this.success = true;
           this.Submitted=true;
           setTimeout(()=>{
-            this.router.navigate(['/login']);
+            this.router.navigate(['/genreSelection'+'/'+user.email]);
           },1000);
         }
         else{
           this.success=false;
         }
-        console.log(this.success +" "+this.Submitted)
+        //console.log(this.success +" "+this.Submitted)
      }
    }
 }

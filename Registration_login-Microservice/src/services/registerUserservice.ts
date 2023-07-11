@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import user, { IUser } from "../Models/User.Model";
+import Genres from "../Models/Genre.Model";
 export async function registerUser(req: Request , res : Response ){
     try{
         //console.log(req);
@@ -28,4 +29,54 @@ export async function registerUser(req: Request , res : Response ){
             message:e.message
         })}
     }
+}
+
+export async function verifyEmail(req :Request, res:Response){
+    try{
+    const u = await user.find({email:req.params.email});
+    if(u.length != 0){
+        res.status(200).json({
+            message:true
+        });
+    }
+    else{
+        res.status(200).json({
+            message:false
+        });
+    }}
+    catch(err:any){
+        res.status(404).json({
+            message:err.message
+        })
+    }
+}
+
+export async function getGenres(req:Request,res:Response) {
+    try{
+        const genres = await Genres.find({});
+        res.status(200).json({
+            message:genres
+        })
+    }
+    catch(err:any){
+        res.status(404).json({
+            message:err.message
+        })
+    }
+}
+
+export async function appFavGenres(req:Request,res:Response) {
+    try{
+        const selectedGenres = req.body.selectedGenres;
+        const u = await user.findOneAndUpdate({email:req.params.emailId},{FavGenre:selectedGenres});
+        res.status(200).json({
+            message:"favorite genres have been added successfully"
+        })
+    }
+    catch(err:any){
+        res.status(404).json({
+            message:err.message
+        })
+    }
+
 }

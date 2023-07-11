@@ -1,4 +1,5 @@
 import mongoose, { Document, Model } from "mongoose";
+import { Igenre } from "./Genre.Model";
 
 mongoose.connect('mongodb://localhost:27017/Chunibio',{});
 
@@ -16,6 +17,10 @@ const User = new mongoose.Schema({
     email : {
         type:String,
         require:true
+    },
+    FavGenre:{
+        type:Array,
+        require:false
     },
     password :{
         type:String,

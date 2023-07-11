@@ -1,4 +1,5 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import axios from 'axios';
 
 // Custom validator function
 export function confirmPasswordValidator(confirmPasswordControlName: string): ValidatorFn {
@@ -12,4 +13,9 @@ export function confirmPasswordValidator(confirmPasswordControlName: string): Va
 
     return null;
   };
+}
+
+export async function  VerifyEmail(email: any){
+     const result= await axios.get(`http://localhost:3000/verifyEmail/${email}`);
+     return result;
 }
