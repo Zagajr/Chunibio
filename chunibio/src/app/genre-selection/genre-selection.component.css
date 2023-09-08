@@ -1,3 +1,4 @@
+@import "~bootstrap/dist/css/bootstrap.css";
 .Container{
     background: linear-gradient(45deg,azure,purple);
     padding: 50px,9%;
@@ -8,7 +9,8 @@ html{
     background-image: url(./GenreImages/Fiction.jpg);
     background-image: url(./GenreImages/Mystery.jpg);
     background-image: url(./GenreImages/NonFiction.jpg);
-    background-image: url(./GenreImages/romance.jpg);
+    background-image: url(./GenreImages/romance.avif);
+    background-image: url(./GenreImages/Horror.webp);
     margin: 0px;
     margin-top: 0px;
     
@@ -55,11 +57,12 @@ p{
 button{
     display: inline-block;
     color: white;
-    align-self: center;
     border: none;
+    text-align: center;
+    margin-left: 550px;
     padding-left: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     padding-right: 15px;
     background-color: purple;
     border-radius: 18px;
@@ -82,4 +85,8 @@ button:active{
 *{
     margin: 0px;
     padding: 0px;
+}
+.text-success{
+    padding-top: 10px;
+    margin-left: 550px;
 }

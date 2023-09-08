@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Event} from '@angular/router';
+import { ActivatedRoute, Event, Router} from '@angular/router';
 import { VerifyEmail } from '../Validators/validaton-helper';
 import { GenreSelectionService } from './genre-selection.service';
 import { DomSanitizer,SafeStyle } from '@angular/platform-browser';
@@ -11,14 +11,20 @@ import { DomSanitizer,SafeStyle } from '@angular/platform-browser';
 })
 export class GenreSelectionComponent implements OnInit {
 [x: string]: any;
-  constructor(private route :ActivatedRoute ,private genreSelectionService:GenreSelectionService,private sanitizer:DomSanitizer){}
+  constructor(private route :ActivatedRoute ,private genreSelectionService:GenreSelectionService,private sanitizer:DomSanitizer,private router:Router){}
   sanitizeImageUrl(url:string):SafeStyle{
     return this.sanitizer.bypassSecurityTrustStyle(`url(${url})`);
   }
+  public GenreAdditionResponse!: any;
   private selectedGenres = new Array();
   public UserEmail= this.route.snapshot.paramMap.get('emailId');
   async addFavGenres():Promise<void>{
-    this.genreSelectionService.addFavoriteGenres(this.UserEmail,this.selectedGenres);
+    const response = await this.genreSelectionService.addFavoriteGenres(this.UserEmail,this.selectedGenres);
+    console.log(response);
+    this.GenreAdditionResponse = response;
+    setTimeout(()=>{
+      this.router.navigate(['/login']);
+    },1000);
    }
    public backGrounds:any = {
     Fantasy : "Fantasy.jpg",
@@ -40,7 +46,6 @@ export class GenreSelectionComponent implements OnInit {
  
   public genres!: any;
   async ngOnInit(): Promise<void> {
-    this.genreSelectionService.loadGenreImages();
     if(await VerifyEmail(this.UserEmail)){
       this.genres = await this.genreSelectionService.getGenres();
       console.log(this.genres);

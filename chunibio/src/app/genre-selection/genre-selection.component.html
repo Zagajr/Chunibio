@@ -15,8 +15,12 @@
        <input type="checkbox"  name="{{genre.id}}" [value]="genre.id" (change)="getGenreId($event,genre.genre)">
        <p>{{genre.Desc}}</p>
       </div> 
-    <button type="submit" (click)="addFavGenres()">Add</button>
+   
 </div>  
+<button type="submit" (click)="addFavGenres()">Add</button>
+<p class="text-success" [ngStyle]="{
+    'align-self': 'center'
+}" *ngIf="GenreAdditionResponse" >{{GenreAdditionResponse.message}} Redirecting to login......</p>
 </div>
 </body>
 </html>

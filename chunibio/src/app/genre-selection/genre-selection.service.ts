@@ -16,19 +16,4 @@ export class GenreSelectionService {
     const response = await this.http.post(`http://localhost:3000/addFavGenres/${emailId}`,payload).toPromise();
     return response;
   }
-  async loadGenreImages(){
-    const folderPath = './GenreImages/';
-
-    this.http.get(folderPath , {responseType:'text'}).subscribe(data => {
-      const parser = new DOMParser();
-      const htmlDoc = parser.parseFromString(data,'text/html');
-      const imgEmement =htmlDoc.getElementsByTagName('img');
-
-      for (let i = 0; i < imgEmement.length; i++) {
-        const imageUrl:any =imgEmement[i].getAttribute('src');
-        localStorage.setItem(`image${i}`,imageUrl);
-        
-      }
-    });
-  }
 }
