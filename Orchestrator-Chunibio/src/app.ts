@@ -4,9 +4,10 @@ import bodyParser from "body-parser";
 import cors from "cors";
 
 const app = express();
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit:'50mb'}));
+app.use(bodyParser.urlencoded({limit:'50mb',extended:true}));
 app.use(cors({
-    origin:"*",
+    origin:"http://localhost:4200",
     credentials:true
 }));
 app.use('/',router);

@@ -1,11 +1,17 @@
 import bodyParser from "body-parser";
-import express from "express";
+import express, { Application } from "express";
 import router from "./Routing";
+import cookieParser from 'cookie-parser';
+import cors from "cors";
 
-const app = express();
+const app:Application = express();
+app.use(cors({
+    origin:"*",
+    credentials:true
+}));
 app.use(bodyParser.json());
 app.use('/',router);
-
+app.use(cookieParser());
 const port = 4000;
 
 app.listen(port,()=>{

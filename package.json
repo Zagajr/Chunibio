@@ -1,0 +1,12 @@
+{
+  "name": "chunibio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:all": "npx concurrently \"npx ng serve --open\" \"npm run dev \" \"npm run dev\" \"npm run dev\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

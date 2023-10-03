@@ -1,5 +1,6 @@
+@import "~bootstrap/dist/css/bootstrap.css";
 .formPage{
-     display: flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     background-color:azure;
@@ -71,5 +72,11 @@ button:active{
 input{
     display: block;
     margin: 8px;
+}
+.here{
+    color:purple;
+    border:solid rebeccapurple;
+    border-radius:5px;
+    align-self: center;
 }
 

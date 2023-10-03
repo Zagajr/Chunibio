@@ -3,7 +3,7 @@ import {FormGroup,FormBuilder,Validators} from '@angular/forms'
 import { Router } from '@angular/router';
 import { confirmPasswordValidator } from '../Validators/validaton-helper';
 import { RegisterUserService } from './register-user.service';
-import { User } from './User';
+import { User } from '../models/User';
 import { __await } from 'tslib';
 
 @Component({

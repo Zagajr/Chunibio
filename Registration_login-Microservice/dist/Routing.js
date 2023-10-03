@@ -2,6 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const registerUserservice_1 = require("./services/registerUserservice");
+const loginUserService_1 = require("./services/loginUserService");
 const router = (0, express_1.Router)();
 router.post('/register', registerUserservice_1.registerUser);
+router.get('/verifyEmail/:email', registerUserservice_1.verifyEmail);
+router.get('/getGenres', registerUserservice_1.getGenres);
+router.post('/addFavGenres/:emailId', registerUserservice_1.appFavGenres);
+router.post('/loginUser', loginUserService_1.loginUser);
 exports.default = router;

@@ -1,5 +1,4 @@
 import mongoose, { Document, Model } from "mongoose";
-import { Igenre } from "./Genre.Model";
 
 mongoose.connect('mongodb://localhost:27017/Chunibio',{});
 

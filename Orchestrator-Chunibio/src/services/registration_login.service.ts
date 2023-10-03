@@ -56,4 +56,19 @@ export async function addFavGenres(req:Request,res:Response){
     }
 
 }  
+
+export async function loginUser(req: Request , res: Response) {
+ try {
+    const result = await axios.post("http://localhost:4000/loginUser",req.body);
+    res.cookie('creds',req.body.userName,{expires: new Date() , maxAge:999999});
+    res.cookie('email',result.data.email,{expires: new Date(), maxAge:999999});
+    res.status(200).json({
+        response:result.data
+    })
+ } catch (error:any) {
+    res.status(404).json({
+        message: error.message
+    });
+ }   
+}
   

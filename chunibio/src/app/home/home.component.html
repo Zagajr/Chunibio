@@ -1,1 +1,60 @@
-<p>home works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+        <nav class="sidebar">
+            <ul class="navbar-nav">
+                <li class="navItem">
+                    <a onclick="" class="item">
+                        <i class="fa-regular fa-star"></i>
+                        <span class="text">Favorites</span>
+                    </a>
+                </li>
+                <li class="navItem">
+                    <a onclick="" class="item">
+                        <i class="fa-solid fa-user-plus"></i>
+                        <span class="text">friends</span>
+                    </a>
+                </li> <li class="navItem" >
+                    <a (click)="logout()" class="item">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <span class="text">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="navbar">
+            <h1 class="title">Chunibio</h1>
+            <button class="navbarUploadButton" (click)="uploadButtonClick()"> upload book <a class="fa-solid fa-cloud-arrow-up"></a></button>
+            <i class="fa-regular fa-user"></i>
+        </nav>
+        <main class="main">
+            <div class="overlay" *ngIf="showpopup">
+                <div class="content">
+                    <h3 class="uploadTitle">Upload Book</h3>
+                    <div class="close" (click)="onclose()">&times;</div>
+                    <form [formGroup]="uploadForm">
+                        <div class="formGroup">
+                            <label for="Title">Title</label>
+                            <input type="text" class="form-control" formControlName="Title">
+                            <label for="Genre">Genre</label>
+                            <select name="Genre" id="Genre" class="form-control" formControlName="Genre">
+                                <option value="">select Genre</option>
+                                <option *ngFor="let genre of genres.message" [value]="genre.genre">{{genre.genre}}</option>
+                            </select>
+                            <label for="Description">Description</label>
+                            <textarea class="form-control" name="Description" id="description" cols="30" rows="7" formControlName="description"></textarea>
+                            <label for="file">Add Book</label>
+                            <input class="form-control" type="file" name="Book" id="file" (change)="onFileSelect($event)" formControlName="file">
+                        </div>
+                        <button class="uploadbutton" (click)="uploadBook()">Upload</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+</body>
+</html>

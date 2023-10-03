@@ -12,12 +12,18 @@
         <form [formGroup]="loginForm">
             <h1>Login</h1>
             <div class="formGroup">
-                <button (click)="routeToRegistrationForm()" >Register</button>
                 <label for="userName">UserName</label>
                 <input type="text" class="form-control" formControlName="userName">
+                <p class="alert-danger" *ngIf="loginForm.controls['userName'].errors && loginForm.controls['userName'].touched ">
+                    username is required
+                </p>
                 <label for="password">Password</label>
                 <input type="password" class="form-control" formControlName="password" >
-                <button class="LoginButton" >Login</button>
+                <p class="alert-danger" *ngIf="loginForm.controls['password'].errors?.['required'] && loginForm.controls['password'].touched">
+                    Password is required
+                </p>
+                <button class="LoginButton" (click)="loginUser()" >Login</button>
+                <label >click <span class="here" (click)="routeToRegistrationForm()" > here </span> to Register</label>
             </div>
         </form>
     </div>
