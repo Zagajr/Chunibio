@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import {HttpClientModule} from "@angular/common/http";
 import { GenreSelectionComponent } from './genre-selection/genre-selection.component';
 import { HomeComponent } from './home/home.component';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,ReactiveFormsModule,HttpClientModule
+    AppRoutingModule,ReactiveFormsModule,HttpClientModule,
+    NgxExtendedPdfViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

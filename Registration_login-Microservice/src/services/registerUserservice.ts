@@ -8,9 +8,11 @@ export async function registerUser(req: Request , res : Response ){
         const u = await user.find({email:req.body.email});
         if(u.length==0){
             let password = hash(req.body.password);
+            let email:String =req.body.email
+            email = email.toLowerCase();
          user.create({
             userName:req.body.userName,
-            email:req.body.email,
+            email : email,
             password:password
         });}
         else{

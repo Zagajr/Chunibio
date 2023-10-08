@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       let result =  this.logger.loginUser(userCreds);
       result.then(()=>{
         let cookie = this.cookie.get('email');
-        this.router.navigate([`/HomePage/:${cookie}`]);
+        this.router.navigate([`/HomePage/${cookie}`]);
         console.log(cookie);
       })
       this.Submitted = true;

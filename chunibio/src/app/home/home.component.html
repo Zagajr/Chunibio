@@ -33,6 +33,14 @@
             <i class="fa-regular fa-user"></i>
         </nav>
         <main class="main">
+            <h2 class="recomended">Recomended for you</h2>
+            <div class="booksGrid">
+                <div class="bookCards" *ngFor="let book of usersFavoriteBooks" (click)="getBookPdfToRead(book)">
+                    <img [src]="backGrounds[book.genre]" alt="" class="bookThumbnail">
+                    <div class="bookTitle">Title:{{book.title}}</div>
+                    <p class="bookDesc">Description:{{book.Desc}}</p>
+                </div>
+            </div>
             <div class="overlay" *ngIf="showpopup">
                 <div class="content">
                     <h3 class="uploadTitle">Upload Book</h3>
@@ -53,8 +61,12 @@
                         </div>
                         <button class="uploadbutton" (click)="uploadBook()">Upload</button>
                     </form>
+                    <p class="text-success" *ngIf="isUploaded">book uploaded Successfully</p>
                 </div>
             </div>
+            <div>
+            </div >
+            <div class="bookContainerdiv" *ngIf="showBook"><div class="closeBook" (click)="onBook()">&times;</div><ngx-extended-pdf-viewer class="pdfViewer" [src]="pdfURL" [pageViewMode]="'infinite-scroll'"></ngx-extended-pdf-viewer></div>
         </main>
 </body>
 </html>

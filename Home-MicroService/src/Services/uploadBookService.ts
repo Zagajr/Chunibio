@@ -10,6 +10,7 @@ export async function uploadBook(req:Request,res:Response) {
         if (!req.body.file) {
             return res.status(400).json({ message: 'No file uploaded' });
           }
+        const file = JSON.parse(req.body.file); 
         const {title,genre,Desc} =req.body; 
         const id = await getbookId(); 
         const book = new Book({
@@ -18,11 +19,9 @@ export async function uploadBook(req:Request,res:Response) {
             genre,
             Desc,
             file:{
-                data:req.body.file.buffer,
-                contentType:req.body.file.mimetype
+                data:file.buffer,
+                contentType:file.mimetype
             },
-            
-
         });
         await book.save();
         res.status(200).json({
