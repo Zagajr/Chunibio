@@ -14,8 +14,7 @@
        <h1 > {{genre.genre}}</h1>
        <input type="checkbox"  name="{{genre.id}}" [value]="genre.id" (change)="getGenreId($event,genre.genre)">
        <p>{{genre.Desc}}</p>
-      </div> 
-   
+      </div>
 </div>  
 <button type="submit" (click)="addFavGenres()">Add</button>
 <p class="text-success" [ngStyle]="{

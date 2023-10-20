@@ -1,0 +1,37 @@
+[{
+  "_id": {
+    "$oid": "64a7c8c561ae6e80145db69f"
+  },
+  "genre": "Fiction",
+  "Desc": "Fiction is any creative work, chiefly any narrative work, portraying individuals, events, or places that are imaginary, or in ways that are imaginary. Fictional portrayals are thus inconsistent with history, fact, or plausibility."
+},{
+  "_id": {
+    "$oid": "64a7c8ef61ae6e80145db6a1"
+  },
+  "genre": "Mystery",
+  "Desc": "Mystery is a fiction genre where the nature of an event, usually a murder or other crime, remains mysterious until the end of the story. Often within a closed circle of suspects, each suspect is usually provided with a credible motive and a reasonable opportunity for committing the crime."
+},{
+  "_id": {
+    "$oid": "64a7c96361ae6e80145db6a3"
+  },
+  "genre": "Non-fiction",
+  "Desc": "Non-fiction is any document or media content that attempts, in good faith, to convey information only about the real world, rather than being grounded in imagination. Non-fiction typically aims to present topics objectively based on historical, scientific, and empirical information."
+},{
+  "_id": {
+    "$oid": "64a7c9a861ae6e80145db6a5"
+  },
+  "genre": "Horror",
+  "Desc": "Horror is a film genre that seeks to elicit fear or disgust in its audience for entertainment purposes. Horror films often explore dark subject matter and may deal with transgressive topics or themes. Broad elements include monsters, apocalyptic events, and religious or folk beliefs"
+},{
+  "_id": {
+    "$oid": "64a7ca5461ae6e80145db6a7"
+  },
+  "genre": "Fantasy",
+  "Desc": "Fantasy is a genre of speculative fiction involving magical elements, typically set in a fictional universe and usually inspired by mythology and folklore. The term fantasy can also be used to describe a work of this genre, usually literary."
+},{
+  "_id": {
+    "$oid": "64a7cac761ae6e80145db6a9"
+  },
+  "genre": "Romance",
+  "Desc": "Romance or romantic love is a feeling of love for, or a strong attraction towards another person, and the courtship behaviors undertaken by an individual to express those overall feelings and resultant emotions."
+}]
