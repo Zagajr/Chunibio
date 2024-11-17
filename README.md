@@ -1,4 +1,4 @@
-# Authors & Readers Platform  
+# Chunibio
 
 A *MEAN Stack* application where authors can post their books and readers can explore, read, and engage with the content.  
 
@@ -27,5 +27,5 @@ Ensure you have the following installed on your system:
 ### Steps  
 1. Clone the repository:  
    ```bash  
-   git clone https://github.com/your-repo/authors-readers-platform.git  
-   cd authors-readers-platform
+   git clone https://github.com/Zagajr/Chunibio.git
+   cd Chunibio
